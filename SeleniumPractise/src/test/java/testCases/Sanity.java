@@ -2,6 +2,8 @@ package testCases;
 
 import BasePkg.Base;
 import Page.Actions.CheckBox;
+import Page.Actions.Dropdown;
+import Page.Actions.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,7 +24,8 @@ public class Sanity {
     @Test
     public void verifyCheckBoxFunctionality() {
         System.out.println("Test case 1");
-        CheckBox cbAction = new CheckBox(driver);
+        HomePage homePage = new HomePage(driver);
+        CheckBox cbAction = homePage.goToCheckBoxPage();
         System.out.println("Printing page header");
         System.out.println(cbAction.getPageHeader());
     }
@@ -30,9 +33,20 @@ public class Sanity {
     @Test
     public void verifySelectCheckBoxFunctionality() {
         System.out.println("Test case 2");
-        CheckBox cbAction = new CheckBox(driver);
+        HomePage homePage = new HomePage(driver);
+        CheckBox cbAction = homePage.goToCheckBoxPage();
         System.out.println("Selecting the Checkbox");
         cbAction.selectCheckBox();
+    }
+
+
+
+    @Test
+    public void verifySelectDropdownFunctionality() throws InterruptedException {
+        System.out.println("Test case 3");
+        HomePage homePage = new HomePage(driver);
+        Dropdown dropdown = homePage.goToDropdownPage();
+        dropdown.selectDropdown("Option 2");
     }
 
     @AfterMethod

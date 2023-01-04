@@ -1,16 +1,27 @@
 package Page.Actions;
 
-
-
-/*
- 1. Add action method to click on dropdown and checkbox link : HomePage Action
- 2. Add locator of dropdown and checkbox link : HomePage Locator
- 3. Create a dropdown locator and action
- 4. Create a common util method to handle dropdown via value
- 5. Write a test to verify dropdown selection
- 6. Fix checkbox test cases
- */
-
+import Utils.CommonUtils;
+import org.openqa.selenium.WebDriver;
 
 public class HomePage {
+
+    private WebDriver driver;
+    private Page.Locators.HomePage homePage;
+
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+        homePage = new Page.Locators.HomePage(driver);
+    }
+
+    public CheckBox goToCheckBoxPage() {
+        System.out.println("Navigating to CB page");
+        CommonUtils.click(homePage.getCheckBoxLink());
+        return new CheckBox(driver);
+    }
+
+    public Dropdown goToDropdownPage() {
+        System.out.println("Navigating to Dropdown page");
+        CommonUtils.click(homePage.getDropdownLink());
+        return new Dropdown(driver);
+    }
 }

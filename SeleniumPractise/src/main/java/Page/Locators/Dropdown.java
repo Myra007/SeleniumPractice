@@ -5,29 +5,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class Dropdown {
 
     private WebDriver driver;
 
-    public HomePage(WebDriver driver) {
+    public Dropdown(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[text()='Checkboxes']")
-    private WebElement checkBoxLink;
+    @FindBy(xpath = "//h3[text()='Dropdown List']")
+    private WebElement ddsHeader;
 
 
-    @FindBy(xpath = "//a[text()='Dropdown']")
-    private WebElement dropdownLink;
+    @FindBy(xpath = "//select[@id='dropdown']")
+    private WebElement dropdown;
 
     //**********************************************************************
 
-    public WebElement getCheckBoxLink(){
-        return checkBoxLink;
+
+    public WebElement getDdsHeader() {
+        return ddsHeader;
     }
 
-    public WebElement getDropdownLink() {
-        return dropdownLink;
+    public WebElement getDropdown() {
+        return dropdown;
     }
 }

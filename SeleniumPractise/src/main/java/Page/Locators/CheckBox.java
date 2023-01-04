@@ -20,6 +20,9 @@ public class CheckBox {
     @FindBy(xpath = "//h3[text()='Checkboxes']")
     private WebElement pageHeader;
 
+
+    //**********************************************************************
+
     public WebElement getFirstCheckbox() {
         return firstCheckbox;
     }
